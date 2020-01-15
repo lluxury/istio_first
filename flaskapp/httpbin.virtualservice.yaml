@@ -6,15 +6,7 @@ spec:
   hosts:
   - httpbin.default.svc.cluster.local
   http:
-  - match:
-    - uri:
-        exact: "/get"
-    # redirect:
-    rewrite:
-      uri: /post
+  - timeout: 3s
     route:
     - destination:
         host: httpbin.default.svc.cluster.local    
-  - route:
-    - destination:
-        host: httpbin.default.svc.cluster.local
