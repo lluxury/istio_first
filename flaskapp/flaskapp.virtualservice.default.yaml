@@ -10,8 +10,8 @@ spec:
     - destination:
         host: flaskapp.default.svc.cluster.local
         subset: v1
-      weight: 70
+      weight: 10
     - destination:
         host: flaskapp.default.svc.cluster.local
         subset: v2
-      weight: 30
+      weight: 90
