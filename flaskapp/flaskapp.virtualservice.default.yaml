@@ -10,11 +10,11 @@ spec:
     - sourceLabels:
         app: sleep
         version: v1
-    route:
-    - destination:
-        host: flaskapp.default.svc.cluster.local
-        subset: v1
+      uri:
+        exact: "/env/HOSTNAME"
+    redirect:
+      uri: /env/version
   - route:
     - destination:
         host: flaskapp.default.svc.cluster.local
-        subset: v2
+        subset: v1
