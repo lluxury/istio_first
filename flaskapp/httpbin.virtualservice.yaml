@@ -5,8 +5,9 @@ metadata:
 spec:
   hosts:
   - httpbin.default.svc.cluster.local
-  http:
-  - timeout: 3s
-    route:
+  http:   
+  - route:
     - destination:
-        host: httpbin.default.svc.cluster.local    
+        host: httpbin.default.svc.cluster.local
+    retries:
+      attempts: 3
