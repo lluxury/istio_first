@@ -9,8 +9,12 @@ spec:
   - match:
     - uri:
         exact: "/get"
-    redirect:
+    # redirect:
+    rewrite:
       uri: /post
+    route:
+    - destination:
+        host: httpbin.default.svc.cluster.local    
   - route:
     - destination:
         host: httpbin.default.svc.cluster.local
