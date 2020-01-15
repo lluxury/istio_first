@@ -9,9 +9,5 @@ spec:
   - route:
     - destination:
         host: flaskapp.default.svc.cluster.local
-        subset: v1
-      weight: 10
-    - destination:
-        host: flaskapp.default.svc.cluster.local
         subset: v2
-      weight: 90
+      weight: 100
