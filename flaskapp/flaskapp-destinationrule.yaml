@@ -3,7 +3,8 @@ kind: DestinationRule
 metadata:
   name: flaskapp
 spec:
-  host: flaskapp
+  host: flaskapp.default.svc.cluster.local
+  trafficPolicy:
   subsets:
   - name: v1
     labels:
