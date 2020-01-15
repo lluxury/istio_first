@@ -7,14 +7,14 @@ spec:
   - flaskapp.default.svc.cluster.local
   http:
   - match:
-    - headers:
-        lab:
-          exact: canary
+    - sourceLabels:
+        app: sleep
+        version: v1
     route:
     - destination:
         host: flaskapp.default.svc.cluster.local
-        subset: v2
+        subset: v1
   - route:
     - destination:
         host: flaskapp.default.svc.cluster.local
-        subset: v1
+        subset: v2
