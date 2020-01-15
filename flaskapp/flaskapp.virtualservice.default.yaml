@@ -6,8 +6,15 @@ spec:
   hosts:
   - flaskapp.default.svc.cluster.local
   http:
-  - route:
+  - match:
+    - headers:
+        lab:
+          exact: canary
+    route:
     - destination:
         host: flaskapp.default.svc.cluster.local
         subset: v2
-      weight: 100
+  - route:
+    - destination:
+        host: flaskapp.default.svc.cluster.local
+        subset: v1
