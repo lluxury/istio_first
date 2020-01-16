@@ -5,16 +5,12 @@ metadata:
 spec:
   hosts:
   - flaskapp.default.svc.cluster.local
+  - flaskapp.microservice.rocks
+  gateways:
+  - mesh
+  - example-gateway  
   http:
-  - match:
-    - sourceLabels:
-        app: sleep
-        version: v1
-      uri:
-        exact: "/env/HOSTNAME"
-    redirect:
-      uri: /env/version
   - route:
     - destination:
         host: flaskapp.default.svc.cluster.local
-        subset: v1
+        subset: v2
