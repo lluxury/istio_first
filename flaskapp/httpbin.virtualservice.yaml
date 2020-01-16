@@ -4,12 +4,11 @@ metadata:
   name: httpbin
 spec:
   hosts:
-  - httpbin.default.svc.cluster.local
+  - "*"
+  gateways:
+  - httpbin-gateway
   http:   
   - route:
     - destination:
         host: httpbin.default.svc.cluster.local
-    retries:
-      attempts: 3
-      perTryTimeout: 8s
-    timeout: 3s
+  timeout: 5s
