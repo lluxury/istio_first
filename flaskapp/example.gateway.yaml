@@ -15,12 +15,21 @@ spec:
       - "*.microservice.xyz"
     - port:
         number: 443
-        name: https
+        name: https-rocks
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        serverCertificate: xx
-        privateKey: xx
+        serverCertificate: xx1
+        privateKey: xx1
       hosts:
       - "*.microservice.rocks"
+    - port:
+        number: 443
+        name: https-xyz
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        serverCertificate: xx2
+        privateKey: xx2
+      hosts:
       - "*.microservice.xyz"
