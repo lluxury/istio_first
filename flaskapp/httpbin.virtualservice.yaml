@@ -5,11 +5,17 @@ metadata:
 spec:
   hosts:
   - "httpbin.default.svc.cluster.local"
-  http:   
-  - route:
+  http:
+  - match:
+      sourceLabels:
+        version: v1
+    route:
     - destination:
         host: httpbin.default.svc.cluster.local
     fault:
-      delay:
-        fixedDelay: 3s
-        percent: 100
+      abort:
+        httpStatus: 500
+        percent: 100       
+  - route:
+    - destination:
+        host: httpbin.default.svc.cluster.local
