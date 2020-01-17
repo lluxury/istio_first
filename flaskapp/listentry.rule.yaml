@@ -7,4 +7,4 @@ spec:
   actions:
   - handler: chaos.listchecker
     instances:
-  - version.listentry
+    - version.listentry
