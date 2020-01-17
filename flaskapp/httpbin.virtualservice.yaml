@@ -19,3 +19,4 @@ spec:
   - route:
     - destination:
         host: httpbin.default.svc.cluster.local
+  
