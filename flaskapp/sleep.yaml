@@ -4,11 +4,9 @@ metadata:
   name: sleep
   labels:
     app: sleep
-    version: v1
 spec:
   selector:
     app: sleep
-    version: v1
   ports:
     - name: ssh
       port: 80
@@ -16,7 +14,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: sleep
+  name: sleep-v1
 spec:
   replicas: 1
   template:
@@ -25,6 +23,25 @@ spec:
         app: sleep
         version: v1
     spec:
+      serviceAccountName: sleep
+      containers:
+      - name: sleep
+        image: dustise/sleep
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sleep-v2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sleep
+        version: v2
+    spec:
+      serviceAccountName: sleep-v2
       containers:
       - name: sleep
         image: dustise/sleep
