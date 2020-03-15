@@ -1,3 +1,7 @@
+
+
+```yaml
+cat <<EOF > /opt/k8s/work/istio_first/flaskapp-destinationrule.yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -12,3 +16,6 @@ spec:
   - name: v2
     labels:
       version: v2
+EOF
+```
+
