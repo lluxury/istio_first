@@ -1,4 +1,4 @@
-```sh
+```yaml
 cd /opt/k8s/work/first_istio
 cat > flask.istio.yaml  <<EOF
 apiVersion: v1
